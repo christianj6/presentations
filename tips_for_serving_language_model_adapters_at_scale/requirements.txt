@@ -1,3 +1,6 @@
 peft
+protobuf
+sentencepiece
+bitsandbytes
 fastapi
 uvicorn
