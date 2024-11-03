@@ -42,6 +42,7 @@ def send_request(model_type):
 
     try:
         response = requests.post(URL, json=data)
+        print(response.content)
         response.raise_for_status()  # Raise an error for bad responses
         response_time = time.time() - start_time
 
