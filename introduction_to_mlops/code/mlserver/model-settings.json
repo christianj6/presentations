@@ -2,6 +2,7 @@
   "name": "test",
   "implementation": "mlserver_mlflow.MLflowRuntime",
   "parameters": {
-    "uri": "models:/<model_name>/<model_version>"
+    "uri": "models:/<model_name>/<model_version>",
+    "version": "v0.1.0"
   }
 }

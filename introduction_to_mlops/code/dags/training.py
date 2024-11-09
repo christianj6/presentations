@@ -33,6 +33,7 @@ def train_and_upload_model():
     from sklearn.metrics import accuracy_score
     import mlflow
     import mlflow.sklearn
+    from mlflow.models.signature import infer_signature
 
     # Ensure MLflow is connected to the local server
     mlflow.set_tracking_uri("http://mlflow_server:5000")  # Set the tracking URI to the local MLflow server
@@ -57,6 +58,8 @@ def train_and_upload_model():
 
     print(f"Model accuracy: {accuracy}")
 
+    model_signature = infer_signature(X_train, y_train)
+
     # Start a new MLflow run and create a new experiment (if not already done)
     with mlflow.start_run():
         # Log parameters and metrics
@@ -65,7 +68,7 @@ def train_and_upload_model():
         mlflow.log_metric("accuracy", accuracy)
 
         # Log the trained model to MLflow
-        mlflow.sklearn.log_model(classifier, "svm_model")
+        mlflow.sklearn.log_model(classifier, "svm_model", signature=model_signature)
 
     print("Model logged to MLflow")
 

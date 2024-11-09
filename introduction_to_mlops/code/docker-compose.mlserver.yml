@@ -2,12 +2,11 @@ version: '3.7'
 
 services:
   mlserver:
-    image: seldonio/mlserver
     build:
       context: .
       dockerfile: Dockerfile.mlserver
     ports:
-      - "8081:8081"  # Expose port 8081 on the host to port 8081 in the container
+      - "5555:5555"
     volumes:
       - ./mlserver:/mlserver  # Mount local directory ./mlserver to container's /mlserver directory
     working_dir: /mlserver  # Set the working directory in the container
@@ -15,5 +14,5 @@ services:
     env_file:
       - .env
     environment:
-      - PORT=8081  # Ensure mlserver runs on port 8081
       - MLFLOW_S3_ENDPOINT_URL=http://minio:9000
+      - MLFLOW_TRACKING_URI=http://mlflow_server:5000
