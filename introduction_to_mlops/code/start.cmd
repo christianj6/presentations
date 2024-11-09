@@ -6,6 +6,7 @@ set "AIRFLOW_URL=https://airflow.apache.org/docs/apache-airflow/2.10.3/docker-co
 
 set "AIRFLOW_FILE=docker-compose.airflow.yml"
 set "MLFLOW_FILE=docker-compose.mlflow.yml"
+set "MLSERVER_FILE=docker-compose.mlserver.yml"
 
 rem Download Airflow Docker Compose file
 echo Downloading Airflow Docker Compose file...
@@ -25,7 +26,7 @@ if %errorlevel% neq 0 (
 
 rem Bring up both Airflow and MLflow services
 echo Starting services for both Airflow and MLflow...
-docker-compose -f "%AIRFLOW_FILE%" -f "%MLFLOW_FILE%" up --build -d
+docker-compose -f "%AIRFLOW_FILE%" -f "%MLFLOW_FILE%" -f "%MLSERVER_FILE%" up --build -d
 if %errorlevel% neq 0 (
     echo Failed to start services
     exit /b 1
