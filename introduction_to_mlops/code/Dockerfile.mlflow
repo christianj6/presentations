@@ -1,0 +1,4 @@
+FROM ghcr.io/mlflow/mlflow
+
+# additional dependencies required for mysql database
+RUN pip install pymysql cryptography
