@@ -21,5 +21,6 @@ This directory contains the original presentation slides from the talk, as well 
 #### Notes and Attribution
 - MLflow docker-compose example is taken from [this repository](https://github.com/sachua/mlflow-docker-compose).
 - Training DAG code is taken from the [MLServer sklearn example](https://mlserver.readthedocs.io/en/latest/examples/sklearn/README.html).
+- **WARNING FOR MAC USERS**: You may experience issues with the MLflow container attempting to expose the allocated port 5000. This may be due to [a setting which you need to adjust]([https://stackoverflow.com/questions/72369320/why-always-something-is-running-at-port-5000-on-my-mac](https://stackoverflow.com/questions/72369320/why-always-something-is-running-at-port-5000-on-my-mac)), otherwise you need to remap the ports configured in the demo.
 
 ***
